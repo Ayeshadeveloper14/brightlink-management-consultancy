@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script>
+      (function() {
+        try {
+          var _rawFetch = window.fetch;
+          var _fetch = _rawFetch ? function() {
+            return _rawFetch.apply(window, arguments);
+          } : undefined;
+
+          var descriptor = {
+            get: function() {
+              return _fetch;
+            },
+            set: function(fn) {
+              _fetch = fn;
+            },
+            configurable: true,
+            enumerable: true
+          };
+
+          try {
+            Object.defineProperty(window, 'fetch', descriptor);
+          } catch (_) {}
+
+          if (typeof Window !== 'undefined' && Window.prototype) {
+            try {
+              Object.defineProperty(Window.prototype, 'fetch', descriptor);
+            } catch (_) {}
+          }
+        } catch (_) {}
+      })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brightlink Management Consultancy - UAE Golden Visa</title>
+    <meta name="description" content="Secure Your Future with Golden Visa in the UAE. 10-year long-term residency, property investor pathways, family sponsorship, and business setup by Brightlink Management Consultancy." />
+    <meta property="og:title" content="Brightlink Management Consultancy - UAE Golden Visa" />
+    <meta property="og:description" content="Secure Your Future with Golden Visa in the UAE. 10-year long-term residency, property investor pathways, family sponsorship, and business setup by Brightlink Management Consultancy." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cabinet+Grotesk:wght@700;800;900&display=swap" rel="stylesheet">
+  </head>
+  <body class="font-sans antialiased text-slate-800 bg-[#fbfbfb]">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
